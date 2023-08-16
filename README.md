@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# My-DevOps
-=======
 # Terraform Automation and DevOps learning
-
 ## Pre-requisites
 1. Install awscli
 2. Create aws account
@@ -18,4 +14,3 @@ These above steps are required as we are not hardcoding any of the aws keys in t
 
 ## Each folder
 Each folder is a project where it targets one specific task. It can be a terraform code to bring up 
->>>>>>> 50fb301 (Working terraform code to create jenkins server with terraform)
