@@ -1,9 +1,9 @@
 # EC2 instance creation
 resource "aws_instance" "Jenkins-Instance" {
-  ami             = "ami-08a52ddb321b32a8c"
-  instance_type   = "t2.micro"
-  security_groups = [aws_security_group.jenkins_sg.name]
-  user_data       = "${file("user_data.sh")}"
+  ami                         = "ami-08a52ddb321b32a8c"
+  instance_type               = "t2.micro"
+  security_groups             = [aws_security_group.jenkins_sg.name]
+  user_data                   = file("user_data.sh")
   user_data_replace_on_change = true
 
   tags = merge(var.common_tags,
@@ -20,5 +20,10 @@ output "Jenkins_URL" {
 resource "aws_key_pair" "Jenkins-KP" {
   key_name   = join(var.name, ["Keypair"])
   public_key = file("/Users/pruthvi/.ssh/id_rsa.pub")
+}
+
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [aws_instance.Jenkins-Instance]
+  create_duration = "75s"
 }
 
