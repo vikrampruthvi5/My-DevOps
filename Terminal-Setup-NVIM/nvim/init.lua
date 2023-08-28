@@ -1,0 +1,7 @@
+require("pruthvivikram.plugins-setup")
+require("pruthvivikram.core.colorscheme")
+require("pruthvivikram.core.options")
+require("pruthvivikram.core.keymaps")
+require("pruthvivikram.plugins.nvim-tree")
+require("pruthvivikram.plugins.lualine")
+require("pruthvivikram.plugins.telescope")
