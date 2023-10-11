@@ -24,3 +24,9 @@ Note: By now the kafka cli is setup... Get ready to run the kafka commands. With
 |kafka-topics --bootstrap-server 0.0.0.0:19092 --create --topic first_name | Create new topic with default replication-factor and partitions |
 |kafka-topics --bootstrap-server 0.0.0.0:19092 --create --topic first_name --replication-factor 1 | Create new topic with 1 replication-factor and default partitions |
 |kafka-topics --bootstrap-server 0.0.0.0:19092 --create --topic first_name --replication-factor 1 --partitions 3 | Create new topic with 1 replication-factor and 3 partitions |
+
+### Images
+1. List all topics
+![](images/1.png)
+2. Create new topic with replication and partitions
+![](images/2.png)
