@@ -1,16 +1,26 @@
-# Terraform Automation and DevOps learning
-## Pre-requisites
-1. Install awscli
-2. Create aws account
-3. Create IAM user with CLI access
-    - AMI -> users -> New User -> Administrator role added
-4. Configure aws cli `aws configure`
-    - Add your secret key
-    - Add your secret id
-    - Select default region
-    - Set output as json
+# Kafka Learning
 
-These above steps are required as we are not hardcoding any of the aws keys in the terraform providers file.
+## 1. Setup Kafka cluster locally in MAC OSX using conduktor
+- Install conduktor app locally using downloadable from [conduktor.io](https://www.conduktor.io/get-started/)
+- Run below commands to setup kafka cluster using Konduktor
+    ```
+    curl -L https://releases.conduktor.io/quick-start -o docker-compose.yml && docker compose up -d --wait && echo "Conduktor started on http://localhost:8080"
+    ```
+- Access kafka cluster using [http://localhost:8080/](http://localhost:8080/)
 
-## Each folder
-Each folder is a project where it targets one specific task. It can be a terraform code to bring up 
+## 2. Install KAFKA on MAC OSX (for CLI etc...)
+- Run ```brew install kafka```
+- Usually the installation location is 
+    ```/opt/homebrew/bin/```
+- Set this in ~/.zshrc 
+```export PATH=$PATH:/opt/homebrew/bin/``` and run the command ```source ~/.zshrc```
+
+Note: By now the kafka cli is setup... Get ready to run the kafka commands. Without this setup (setp 2) you have to run all the commands with full path
+
+## 3. KAFKA Topics
+| Command | Importance |
+| ------- | ---------- |
+|kafka-topics --bootstrap-server 0.0.0.0:19092 --list | List all topics from the kafka broker. |
+|kafka-topics --bootstrap-server 0.0.0.0:19092 --create --topic first_name | Create new topic with default replication-factor and partitions |
+|kafka-topics --bootstrap-server 0.0.0.0:19092 --create --topic first_name --replication-factor 1 | Create new topic with 1 replication-factor and default partitions |
+|kafka-topics --bootstrap-server 0.0.0.0:19092 --create --topic first_name --replication-factor 1 --partitions 3 | Create new topic with 1 replication-factor and 3 partitions |
